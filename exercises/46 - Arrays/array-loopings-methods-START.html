@@ -128,7 +128,78 @@
     /*
       Looping Methods
     */
+///ForeEach looping mwthod
+    function show(topping,index,originalArray){
+     
+      const nextTopping =  originalArray[index+1];
+      const prevTopping =  originalArray[index-1];
 
+       prevTopping ? console.log(prevTopping+" prev") : console.log('no topping previously');
+       console.log(topping+" Current");
+       nextTopping ? console.log(nextTopping+" next") : console.log('no topping next');
+       index === originalArray.length - 1 ? console.log('Goodbye') : console.log("getting the next topping");
+      //  console.log(this);
+    }
+
+    toppings.forEach(show);
+    console.clear();
+
+
+// Mapping method
+
+      function addArms(face) {
+        return `👋${face}👋`;
+      }
+
+      const toys = faces.map(addArms);
+      // console.log(toys);
+      function attachBody(face, body) {
+  return `
+            ${face}
+　　　　　${body.repeat(3)}
+　　　　 ${Array(3).fill(body).join(' ')}
+　　　👇🏽　 ${body.repeat(2)}　👇🏽
+         ${Array(2).fill(body).join('   ')}
+         ${Array(2).fill(body).join('   ')}
+　　　　　👢　　👢
+  `
+}
+// faces.map(face => attachBody(face, '🍟')).forEach(body => console.log(body))
+
+const cleanPeople = people.map(function(person) {
+  const birthday = new Date(person.birthday).getTime();
+  const now = Date.now();
+  const age = Math.floor((now - birthday) / 31536000000);
+  console.log(age);
+  return {
+    age: age,
+    name: `${person.names.first} ${person.names.last}`,
+  }
+})
+console.table(cleanPeople);
+const over40 = cleanPeople.filter(function(person) {
+  if (person.age > 40) {
+    return true;
+  } else {
+    return false;
+  }
+})
+console.table(over40);
+console.clear();
+
+
+let total = 0;
+function sumtotal(value){
+    total = total + value;
+}
+orderTotals.forEach(sumtotal);
+// console.log(total);
+
+function tally(acc, value){
+  return acc = acc + value;
+}
+
+console.log( orderTotals.reduce(tally,5))
   </script>
 </body>
 

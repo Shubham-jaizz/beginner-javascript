@@ -10,6 +10,47 @@
 
 <body>
   <script>
+    function wait(ms = 0){
+      return new Promise(function(resolve){
+        setTimeout(resolve,ms);
+      })
+    }
+
+    function makePizza(toppings) {
+  const pizzaPromise = new Promise(function(resolve, reject) {
+
+  const amountOfTime = 500+toppings.length*200;
+    
+    setTimeout(function() {
+    resolve(`Here is your pizza 🍕 with the toppings ${toppings.join(' ')}`);
+   
+  },amountOfTime);
+  if (toppings.includes('pineapple')) {
+      reject("Seriously? Get out 🍍");
+    }
+  });
+  return pizzaPromise;
+}
+
+    // async function retire(){
+    //   console.log("starting");
+    //   await wait(5000);
+    //   console.log("done");
+    //   await wait(2000);
+    //   console.log("excavated")
+    // };
+    // retire();
+
+
+    async function makeDinner(){
+      const pizzaPromise1 = makePizza(['pepperoni']);
+      const pizzaPromise2 = makePizza(['mushrooms','mushrooms','mushrooms']);
+      const [pep,mush] =  await Promise.all([pizzaPromise1, pizzaPromise2]);
+
+      console.log(pep, mush);
+
+    }
+    makeDinner();
 
   </script>
 </body>

@@ -16,6 +16,11 @@
       })
     }
 
+    function handleError(e){
+           console.log('uh oh error occured');
+           console.log(e);
+    }
+
     function makePizza(toppings = []) {
       return new Promise(function (resolve, reject) {
         // reject if people try with pineapple
@@ -32,6 +37,20 @@
       });
     }
 
+    async function go(){
+        
+        const pizza = await makePizza(['pineapple'])
+        console.log(pizza);
+  
+      
+    }
+    function makeSafe(fn,handleerror){
+      return function(){
+        go().catch(handleError);
+      }
+    }
+   const goSafe = makeSafe(go,handleError);
+   goSafe();
   </script>
 </body>
 

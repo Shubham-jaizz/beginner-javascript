@@ -9,7 +9,34 @@
 </head>
 
 <body>
+    <img src="" alt="" class="user">
+
+
+
+
+
   <script>
+   function handleError(e){
+        console.log("error");
+        console.log(e);
+   }
+    const user = document.querySelector(".user");
+    // user.textContent= "...loading";
+    async function handleUser(){
+    
+    const endPoint = "https://api.disneyapi.dev/character";
+    const response = await fetch(endPoint);
+    const data = await response.json();
+    
+      console.log(data);
+      console.log(user);
+      user.src = data.data[30].imageUrl;
+   
+  
+    
+
+  }
+  handleUser().catch(handleError);
 
   </script>
 </body>

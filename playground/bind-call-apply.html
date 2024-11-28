@@ -10,6 +10,39 @@
 
 <body>
 
+  <script>
+    const person = {
+      name : "Shubham",
+      sayHi: function (){
+        console.log(`hello ${this.name}`)
+        console.log(this);
+      }
+    }  
+       const sayHi = person.sayHi;
+       console.log(sayHi())
+       
+
+       const Objectify ={
+                 name:"Shubham",
+                 Bmi: 18,
+                describe: function( weight,height){
+
+                  this.Bmi =  45;
+                   console.log(`HEyy ${this.name} your wight id ${weight} and height is ${height}  you Should be abto to achieve BMI of ${this.Bmi}`);
+
+             
+                }
+       }
+       console.log(Objectify[`Bmi`]);
+    
+    //  const KnowYOu = Objectify.describe.bind({name:"Vibha",Bmi:34},55,5.8);
+     
+    //  console.log(KnowYOu());
+    
+    
+
+  </script>
+
 </body>
 
 </html>

@@ -9,7 +9,48 @@
 </head>
 
 <body>
+  <button class="one">Button 1</button>
+  <button class="two">Button 2</button>
 
+  <script>
+   const button1 = document.querySelector('.one');
+   const button2 = document.querySelector('.two');
+
+   function tellMeAbout(){
+    console.log('outside',this)
+    setTimeout( ()=>{
+       console.log("inside",this);
+      this.textContent = "good work";
+
+    },3000)
+   }
+
+   button1.addEventListener('click',tellMeAbout);
+   button2.addEventListener('click',tellMeAbout);
+
+
+  //  const myDate =  Date('August 11, 2025');
+  //  console.log(myDate);
+  //  console.log(Array, Object, Date, Number);
+  //  const num =  Number(500);
+  //  const name = ['wes', 'kait'];
+  //  console.dir(name);
+
+  
+  //  console.log(span);
+
+
+   function pizza(toppings =[],name){
+      console.log('making a new pizza');
+      this.toppings = toppings;
+      this.owner = name;
+      this.id = Math.floor(Math.random() * 16777215).toString(16);
+   }
+
+
+   const pepperoni = new pizza(['pepperoni,mustard,chhes'],'shubhujaiz');
+   console.dir(pepperoni);
+</script>
 </body>
 
 </html>

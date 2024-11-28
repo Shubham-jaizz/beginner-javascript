@@ -38,12 +38,14 @@
   </style>
   <div class="go">Click Me</div>
   <script>
-    const wait = (ms = 0) => new Promise(resolve => setTimeout(resolve, ms));
-
-    wait(200).then(() => {
-      console.log('Done!');
-    })
-
+      function wait(ms = 0) {
+        return new Promise(function(resolve) {
+          setTimeout(resolve, ms);
+        });
+      }
+      wait(200).then(() => {
+        console.log('Done');
+      })
     const go = document.querySelector('.go');
 
     async function animate2(e) {
@@ -93,7 +95,7 @@
         })
     }
 
-    go.addEventListener('click', animate2);
+    go.addEventListener('click', animate);
 
     go.addEventListener('clickXXXX', function go(e) {
       const el = e.currentTarget;

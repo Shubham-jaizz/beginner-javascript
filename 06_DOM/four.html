@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai-Aur-Code | DOM</title>
+</head>
+<body style="background-color: #212121;color: white;">
+    
+    <ul class="languages">
+        <li>Javascript</li>
+    </ul>
+    <script>
+        function addLanguage(langName) {
+            const li = document.createElement("li");
+            li.innerHTML = `${langName}`;//in this method of appending child .innerHtml have to traverse the whole document tree
+            const ul = document.querySelector(".languages");
+            ul.appendChild(li);
+        }
+
+        addLanguage("cpp");
+        addLanguage("kafka");
+        addLanguage("perl");
+        addLanguage("java");
+        function addOptiLanguage(langName) {
+            const li = document.createElement("li");
+            li.appendChild(document.createTextNode(langName));
+            document.querySelector(".languages").appendChild(li); 
+        }
+        addOptiLanguage("swift");
+
+        //Edit
+        const li2 = document.querySelector("li:nth-child(2)")
+        // li2.innerHTML = "Jassu";
+        const newLi = document.createElement("li");
+        newLi.textContent = "Jassu";
+        li2.replaceWith(newLi);//optimised
+        //edit
+        const lastli = document.querySelector("li:last-child");
+        lastli.outerHTML = `<li>golang</li>`;
+
+        //remove
+        const firstLi = document.querySelector("li:first-child");
+        firstLi.remove();
+
+    </script>
+</body>
+</html>

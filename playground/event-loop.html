@@ -6,11 +6,68 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Event Loop</title>
   <link rel="stylesheet" href="../base.css">
+  <style>
+    .go{
+      margin: 1rem;
+      background: white;
+      padding: 5rem;
+      width: 25rem;
+      transition: all 0.2s;
+    }
+    .go.circle {
+    border-radius: 50%;
+    }
+    .go.red {
+    background: red;
+    }
+
+    .go.purple {
+    background: purple;
+    color: white;
+    }
+    .go.fadeOut {
+    opacity: 0;
+    }
+  </style>
 </head>
 
 <body>
-  <script>
 
+  <div class="go">click-me</div>
+  <script>
+    const go  = document.querySelector(".go");
+
+    go.addEventListener('click', function(e) {
+    const el = e.currentTarget;
+
+    console.log(el);
+    //make it circle
+    setTimeout(function() {
+      el.classList.add('circle');
+      el.textContent = "go";
+    }, 2000);
+    
+      // make it red
+      setTimeout(function() {
+        el.classList.add('red');
+      }, 300);
+      
+        //set purple color
+        setTimeout(function() {
+          el.classList.remove("red");
+          el.classList.add("purple");
+        }, 500);
+          // make it rectagke
+          setTimeout(function() {
+          el.classList.remove("circle");
+          }, 250);
+        
+          // 5. fade out after 0.3 seconds
+          // setTimeout(function() {
+          //   el.classList.add('fadeOut');
+          // }, 300)
+    
+   });
   </script>
 </body>
 

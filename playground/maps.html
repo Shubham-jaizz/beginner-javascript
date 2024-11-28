@@ -9,8 +9,34 @@
 </head>
 
 <body>
-  <script>
 
+  <ul class="prizes"></ul>
+
+
+  <script>
+    const person1 = {
+      name:"Shubham",
+      age :100,
+    }
+     const myMap = new Map();
+     myMap.set(person1,"Description");
+    //  console.log(myMap);  
+    // console.log( myMap.get(person1));
+    myScore = new Map();
+    myScore.set(100,"You Got Rifle");
+    myScore.set(200,"You Got monkey");
+    myScore.set(300,"You Got giraffe");
+
+    // myScore.forEach(element => {
+    //       console.log(element);     
+    // });
+//     for(const prize of myScore){
+//        prize.forEach(element => {
+//            console.log(element);
+//        });
+// }
+    const str =  JSON.stringify(person1);
+    console.log(JSON.parse(str))
   </script>
 </body>
 
